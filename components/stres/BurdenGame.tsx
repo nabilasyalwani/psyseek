@@ -16,7 +16,6 @@ const TAG_TONES = [
   "#C9D4F8",
 ];
 
-// Deterministic pile layout: rows get narrower toward the top.
 const layout = (() => {
   const out: { left: number; row: number; rot: number }[] = [];
   let k = 0;

@@ -1,5 +1,3 @@
-// Resizes the source illustrations in assets/img into light WebP files in public/illustrations.
-// The originals are up to 4167px, far larger than any slot on the site. Run with `npm run images`.
 import { mkdir } from "node:fs/promises";
 import sharp from "sharp";
 
