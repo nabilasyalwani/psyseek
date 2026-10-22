@@ -1,13 +1,24 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   friendDont,
   friendDos,
+  supportChat,
+  supportNote,
   supportRoles,
   supportSources,
 } from "@/lib/content";
-import { ChapterBadge, Container, NextChapter } from "@/components/Shared";
 import {
+  ChapterBadge,
+  ChatBubble,
+  ChatFrame,
+  Container,
+  NextChapter,
+} from "@/components/Shared";
+import {
+  LuArrowRight,
   LuCheck,
+  LuInfo,
   LuMessageCircle,
   LuSearch,
   LuSun,
@@ -15,9 +26,10 @@ import {
   LuX,
 } from "react-icons/lu";
 import {
+  FriendsArch,
   GroupHug,
-  NightWindow,
   PeopleCircleNew,
+  Sleepless,
 } from "@/components/Illustrations";
 
 export const metadata: Metadata = { title: "Dukungan dari Orang Sekitar" };
@@ -36,14 +48,22 @@ export default function Dukungan() {
       <section className="dots-bg border-b-[1.5px] border-ink bg-butter">
         <Container className="grid items-center gap-10 py-14 lg:grid-cols-[1.1fr_1fr] lg:py-16">
           <div>
-            <ChapterBadge no="04" tone="butter" />
+            <ChapterBadge no="02" tone="butter" />
             <h1 className="mt-5 text-5xl leading-[0.98] font-extrabold sm:text-6xl">
-              Dukungan dari Orang Sekitar
+              Kadang Kita Cuma Butuh{" "}
+              <span className="highlight inline-block -rotate-1 bg-white">
+                Didengarkan
+              </span>
             </h1>
+            <p className="mt-6 lg:max-w-lg leading-relaxed text-muted">
+              Saat sedang kewalahan, kita mungkin belum butuh nasihat. Bisa jadi
+              kita hanya ingin didengarkan tanpa dibandingkan atau disuruh
+              segera baik-baik saja.
+            </p>
             <p className="mt-7 text-sm font-bold">
               Dukungan dapat berasal dari:
             </p>
-            <ul className="mt-3 flex max-w-lg flex-wrap gap-2">
+            <ul className="mt-3 flex lg:max-w-lg flex-wrap gap-2">
               {supportSources.map((s) => (
                 <li
                   key={s.label}
@@ -74,7 +94,7 @@ export default function Dukungan() {
       <section className="py-20">
         <Container>
           <p className="eyebrow">Peran orang-orang di sekitarmu</p>
-          <h2 className="mt-3 max-w-xl text-3xl leading-[1.05] font-extrabold sm:text-4xl">
+          <h2 className="mt-3 lg:max-w-xl text-3xl leading-[1.05] font-extrabold sm:text-4xl">
             Empat cara orang terdekat bisa hadir.
           </h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -109,7 +129,7 @@ export default function Dukungan() {
               Panduan singkat
             </p>
             <h2 className="mt-3 text-3xl leading-[1.05] font-extrabold sm:text-4xl">
-              Jika kamu ingin mendukung teman
+              Kalau temanmu sedang bercerita, apa yang bisa kamu lakukan?
             </h2>
             <GroupHug className="mx-auto mt-auto w-full max-w-72 pt-8" />
           </div>
@@ -140,12 +160,44 @@ export default function Dukungan() {
         </Container>
       </section>
 
+      {/* Contoh percakapan */}
+      <section className="border-t-[1.5px] border-ink py-20">
+        <Container>
+          <p className="eyebrow">Contoh percakapan</p>
+          <h2 className="mt-3 text-3xl leading-[1.05] font-extrabold sm:text-4xl">
+            Saat Salsa mulai bercerita ke Dian
+          </h2>
+          <div className="mt-10 grid gap-8 lg:grid-cols-[1.4fr_0.8fr]">
+            <ChatFrame>
+              {supportChat.map((c, i) => (
+                <ChatBubble key={i} {...c} />
+              ))}
+            </ChatFrame>
+            <aside className="brutal flex flex-col overflow-hidden rounded-[28px] bg-lavender p-6">
+              <span className="chip self-start">
+                <LuInfo size={12} /> Catatan
+              </span>
+              <p className="mt-4 text-sm leading-relaxed font-medium">
+                {supportNote}
+              </p>
+              <Link
+                href="/langkah-layanan#layanan"
+                className="btn btn-dark mt-5 self-start py-2.5! text-xs!"
+              >
+                Lihat layanan bantuan <LuArrowRight />
+              </Link>
+              <FriendsArch className="mx-auto mt-auto w-full max-w-56 pt-6" />
+            </aside>
+          </div>
+        </Container>
+      </section>
+
       <NextChapter
-        no="05"
-        title="Mencari Bantuan Itu Bisa Dilakukan"
-        href="/langkah-layanan"
-        tone="periwinkle"
-        art={<NightWindow className="h-full w-full" />}
+        no="03"
+        title="Mengapa Mencari Bantuan Itu Penting?"
+        href="/mencari-bantuan"
+        tone="mint"
+        art={<Sleepless className="h-full w-full" />}
       />
     </>
   );

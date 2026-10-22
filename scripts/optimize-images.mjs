@@ -37,6 +37,10 @@ const sources = {
   "pusat-layanan-psikologi-unhas": "pusat-layanan-psikologi-unhas.png",
   bermakna: "bermakna.png",
   "daya-potensia-indonesia": "daya-potensia-indonesia.png",
+  "psyseek-hor": "psyseek-hor.png",
+  "psyseek-ver": "psyseek-ver.png",
+  "halo-jiwa": "halo-jiwa.png",
+  intelektualita: "intelektualita.png",
 };
 
 const SIZE = 1000;

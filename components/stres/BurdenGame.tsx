@@ -111,8 +111,8 @@ export default function BurdenGame() {
           Merasa Berat, Tapi Tidak Tahu Kenapa?
         </h3>
         <p className="mt-5 text-sm text-white/75">
-          Stres akademik sering menumpuk pelan-pelan dari banyak hal kecil. Kamu
-          tidak harus memikul semuanya sendiri.
+          Stres akademik sering datang pelan-pelan dari banyak hal kecil yang
+          numpuk. Kamu nggak harus memikul semuanya sendirian.
         </p>
         <p
           className="mt-3 min-h-6 text-sm font-semibold text-butter"

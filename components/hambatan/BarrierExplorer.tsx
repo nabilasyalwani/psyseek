@@ -2,29 +2,14 @@
 
 import { useState } from "react";
 import { barriers } from "@/lib/content";
-import {
-  LuArrowDown,
-  LuChevronLeft,
-  LuChevronRight,
-  LuSparkles,
-} from "react-icons/lu";
-import {
-  Blanket,
-  OldLady,
-  PeopleRing,
-  PhoneTalk,
-  RainCloud,
-  Therapist,
-} from "../Illustrations";
-
-const art = [OldLady, Therapist, RainCloud, PeopleRing, PhoneTalk, Blanket];
+import { LuArrowDown, LuChevronLeft, LuChevronRight } from "react-icons/lu";
+import { ChatBubble, ChatFrame } from "../Shared";
 
 export default function BarrierExplorer() {
   const [active, setActive] = useState(0);
   const [seen, setSeen] = useState<Set<number>>(new Set([0]));
   const [revealed, setRevealed] = useState(false);
   const b = barriers[active];
-  const Art = art[active];
 
   const go = (i: number) => {
     const n = (i + barriers.length) % barriers.length;
@@ -91,63 +76,19 @@ export default function BarrierExplorer() {
           })}
         </ul>
 
-        <div className="brutal grid overflow-hidden rounded-[28px] bg-white md:grid-cols-[1.4fr_1fr]">
-          <div
-            key={active}
-            className={`tone-${b.tone} fade-up border-b-[1.5px] border-ink p-6 sm:p-8 md:border-r-[1.5px] md:border-b-0`}
-          >
-            <span className="chip">Hambatan {active + 1}</span>
-            <h3 className="mt-4 text-3xl leading-tight font-extrabold">
-              {b.title}
-            </h3>
-            <div className="mt-5 rounded-2xl border-[1.5px] border-ink bg-white p-4">
-              <p className="text-[0.65rem] font-bold tracking-[0.16em] text-muted uppercase">
-                Yang sering dirasakan
-              </p>
-              <p className="mt-1.5 text-sm font-medium">{b.felt}</p>
-            </div>
-            <button
-              type="button"
-              onClick={() => setRevealed((r) => !r)}
-              aria-expanded={revealed}
-              aria-controls={`reframe-${active}`}
-              className={`group mt-5 flex items-center gap-2 rounded-full border-[1.5px] border-ink bg-white py-1 pr-3 pl-1 text-xs font-semibold transition-all duration-300 ease-spring hover:-translate-y-0.5 active:scale-95 ${
-                revealed ? "" : "nudge shadow-[3px_3px_0_var(--color-ink)]"
-              }`}
-            >
-              <span
-                className={`grid size-6 place-items-center rounded-full bg-ink text-white`}
-              >
-                <LuArrowDown
-                  size={12}
-                  className={`transition-transform duration-300 ${revealed ? "rotate-180" : ""}`}
-                />
-              </span>
-              {revealed ? "Sembunyikan" : "Coba lihat dari sisi lain"}
-            </button>
-            {revealed && (
-              <p
-                id={`reframe-${active}`}
-                className="fade-up mt-3 rounded-2xl bg-ink p-5 font-display text-md leading-snug font-bold text-white shadow-[4px_4px_0_#fff]"
-              >
-                {b.reframe}
-              </p>
-            )}
-          </div>
-          <div className="relative flex min-h-fit flex-col justify-between p-6">
-            <span
-              className="font-display hidden md:block md:text-8xl leading-none font-extrabold text-ink/10"
-              aria-hidden
-            >
-              {String(active + 1).padStart(2, "0")}
+        <div
+          className={`tone-${b.tone} brutal rounded-[28px] p-5 transition-colors duration-500 sm:p-8`}
+        >
+          <div className="flex items-start justify-between gap-4">
+            <span key={active} className="chip fade-up">
+              Hambatan {active + 1}
             </span>
-            <Art key={active} className="fade-up mx-auto w-[90%] max-w-full" />
-            <div className="flex justify-between">
+            <div className="flex gap-2">
               <button
                 type="button"
                 onClick={() => go(active - 1)}
                 aria-label="Hambatan sebelumnya"
-                className="grid size-10 place-items-center rounded-full border-[1.5px] border-ink bg-white hover:bg-cream"
+                className="grid size-11 place-items-center rounded-full border-[1.5px] border-ink bg-white transition-all duration-300 ease-spring hover:-translate-x-0.5 hover:bg-cream active:scale-90"
               >
                 <LuChevronLeft size={16} />
               </button>
@@ -155,11 +96,40 @@ export default function BarrierExplorer() {
                 type="button"
                 onClick={() => go(active + 1)}
                 aria-label="Hambatan berikutnya"
-                className="grid size-10 place-items-center rounded-full bg-ink text-white"
+                className="grid size-11 place-items-center rounded-full border-[1.5px] border-ink bg-ink text-white transition-all duration-300 ease-spring hover:translate-x-0.5 active:scale-90"
               >
                 <LuChevronRight size={16} />
               </button>
             </div>
+          </div>
+
+          <div key={active} className="fade-up">
+            <h3 className="mt-5 text-3xl leading-tight font-extrabold sm:text-4xl">
+              {b.title}
+            </h3>
+            <p className="mt-3 text-sm text-muted">
+              <strong className="text-ink">Yang sering dirasakan:</strong>{" "}
+              {b.felt}
+            </p>
+
+            <ChatFrame className="mt-6" header="bg-white">
+              <ChatBubble {...b.chat[0]} />
+              {revealed ? (
+                <ChatBubble {...b.chat[1]} />
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setRevealed(true)}
+                  className="nudge flex items-center gap-2 justify-self-end rounded-full border-[1.5px] border-ink bg-white py-1 pr-3 pl-1 text-xs font-semibold shadow-[3px_3px_0_var(--color-ink)] transition-all duration-300 ease-spring hover:-translate-y-0.5 active:scale-95"
+                >
+                  <span className="grid size-6 place-items-center rounded-full border-[1.5px] border-ink bg-mint text-[0.65rem] font-bold text-ink">
+                    D
+                  </span>
+                  Lihat balasan Dian
+                  <LuArrowDown size={12} />
+                </button>
+              )}
+            </ChatFrame>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { DISCLAIMER, SITE_DESC, footerLinks } from "@/lib/content";
+import { SITE_DESC, TAGLINE, footerLinks } from "@/lib/content";
 import { LuArrowRight } from "react-icons/lu";
 import Logo from "./Logo";
 import { ScrollLink } from "./ScrollLink";
@@ -7,15 +7,13 @@ import { ScrollLink } from "./ScrollLink";
 export default function Footer() {
   return (
     <footer className="bg-ink text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 pt-16 pb-10 sm:px-8 md:grid-cols-[1.2fr_1fr_1.1fr]">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 pt-16 pb-10 sm:px-8 md:grid-cols-[1.4fr_0.8fr_1.1fr]">
         <div>
-          <div className="group flex w-fit items-center gap-2.5">
-            <Logo />
-            <span className="font-display text-lg font-extrabold">
-              Psiko<span className="text-butter">edukasi</span>
-            </span>
+          <div className="group w-fit rounded-2xl border-[1.5px] border-white bg-white px-4 py-3">
+            <Logo height={34} />
           </div>
-          <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/75">
+          <p className="mt-4 max-w-sm text-sm italic">{TAGLINE}</p>
+          <p className="mt-1 max-w-104 text-sm leading-relaxed text-white/75">
             {SITE_DESC}
           </p>
         </div>
@@ -25,10 +23,7 @@ export default function Footer() {
           <ul className="mt-3 grid gap-2 text-sm text-white/80">
             {footerLinks.map((l) => (
               <li key={l.href}>
-                <Link
-                  href={l.href}
-                  className="link-underline hover:text-white"
-                >
+                <Link href={l.href} className="link-underline hover:text-white">
                   {l.label}
                 </Link>
               </li>
@@ -41,7 +36,8 @@ export default function Footer() {
             Butuh seseorang untuk diajak bicara?
           </p>
           <p className="mt-2 text-sm text-white/70">
-            Lihat daftar layanan psikologi di Makassar dan Sulawesi Selatan.
+            Lihat daftar layanan psikologi di Makassar, Sulawesi Selatan, dan
+            layanan online.
           </p>
           <ScrollLink
             href="/langkah-layanan#layanan"

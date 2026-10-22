@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useId, type ReactNode } from "react";
-import type { Tone } from "@/lib/content";
+import type { ChatLine, Tone } from "@/lib/content";
 import { LuArrowRight } from "react-icons/lu";
 import { PiSparkleFill } from "react-icons/pi";
 
@@ -26,8 +26,69 @@ export function ChapterBadge({ no, tone }: { no: string; tone: Tone }) {
       >
         {no}
       </span>
-      Bab {no} dari 05
+      Part {no} dari 05
     </span>
+  );
+}
+
+export function ChatBubble({ who, text }: ChatLine) {
+  const dian = who === "Dian";
+  return (
+    <div
+      className={`fade-up flex items-end gap-3 ${dian ? "flex-row-reverse" : ""}`}
+    >
+      <span
+        className={`grid size-9 shrink-0 place-items-center rounded-full border-[1.5px] border-ink text-xs font-bold text-ink ${dian ? "bg-mint" : "bg-pink"}`}
+        aria-hidden
+      >
+        {who[0]}
+      </span>
+      <div
+        className={`max-w-[85%] rounded-2xl border-[1.5px] border-ink px-4 py-3 text-sm leading-relaxed ${
+          dian
+            ? "rounded-br-sm bg-ink text-white shadow-[4px_4px_0_var(--color-orange)]"
+            : "rounded-bl-sm bg-white"
+        }`}
+      >
+        <p
+          className={`text-[0.65rem] font-bold tracking-[0.12em] ${dian ? "text-butter" : "text-muted"}`}
+        >
+          {who}
+        </p>
+        <p className="mt-1">{text}</p>
+      </div>
+    </div>
+  );
+}
+
+export function ChatFrame({
+  children,
+  header = "bg-butter",
+  className = "",
+}: {
+  children: ReactNode;
+  header?: string;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`border-[1.5px] border-ink overflow-hidden rounded-[28px] bg-cream ${className}`}
+    >
+      <div
+        className={`flex items-center gap-3 border-b-[1.5px] border-ink px-5 py-3 ${header}`}
+      >
+        <span className="flex -space-x-2" aria-hidden>
+          <span className="grid size-7 place-items-center rounded-full border-[1.5px] border-ink bg-pink text-[0.65rem] font-bold">
+            S
+          </span>
+          <span className="grid size-7 place-items-center rounded-full border-[1.5px] border-ink bg-mint text-[0.65rem] font-bold">
+            D
+          </span>
+        </span>
+        <span className="text-sm font-bold">Salsa &amp; Dian</span>
+      </div>
+      <div className="grid gap-5 p-5 sm:p-7">{children}</div>
+    </div>
   );
 }
 
@@ -85,7 +146,7 @@ export function NextChapter({
         >
           <div className="relative z-10">
             <p className="text-[0.7rem] font-bold tracking-[0.16em] uppercase">
-              Bab berikutnya · {no}
+              Part berikutnya · {no}
             </p>
             <p className="mt-2 font-display text-2xl leading-tight font-extrabold sm:text-3xl">
               {title}

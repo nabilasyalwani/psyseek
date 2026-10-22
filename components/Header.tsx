@@ -26,12 +26,7 @@ export default function Header() {
           className="group flex items-center gap-2.5"
           onClick={() => setOpen(false)}
         >
-          <Logo />
-          <span className="leading-tight">
-            <span className="block font-display text-[1.05rem] font-extrabold">
-              Psiko<span className="text-orange">edukasi</span>
-            </span>
-          </span>
+          <Logo priority />
         </Link>
 
         <nav

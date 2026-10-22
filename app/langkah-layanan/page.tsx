@@ -25,7 +25,7 @@ export default function LangkahLayanan() {
       <section className="dots-bg border-b-[1.5px] border-ink bg-periwinkle">
         <Container className="grid items-center gap-10 py-14 lg:grid-cols-[1.2fr_1fr] lg:py-16">
           <div>
-            <ChapterBadge no="05" tone="mint" />
+            <ChapterBadge no="05" tone="periwinkle" />
             <h1 className="mt-5 text-5xl leading-[1.02] font-extrabold sm:text-6xl">
               Mencari Bantuan Itu{" "}
               <span className="highlight inline-block rotate-2 bg-white">
@@ -33,9 +33,9 @@ export default function LangkahLayanan() {
               </span>{" "}
               Dilakukan
             </h1>
-            <p className="mt-6 max-w-lg text-muted">
-              Tujuh langkah sederhana dari mengenali kebutuhanmu hingga
-              menentukan langkah berikutnya bersama tenaga profesional.
+            <p className="mt-6 lg:max-w-lg text-muted">
+              Tujuh langkah sederhana, mulai dari menyadari kamu butuh bantuan
+              sampai menentukan langkah berikutnya bareng tenaga profesional.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a href="#langkah" className="btn btn-dark shadow-none!">
@@ -64,8 +64,8 @@ export default function LangkahLayanan() {
               Satu langkah kecil dalam satu waktu.
             </h2>
             <p className="mt-3 text-sm text-white/70">
-              Kamu tidak perlu menyelesaikan semuanya sekaligus. Mulailah dari
-              langkah pertama.
+              Nggak perlu beres semuanya sekaligus. Cukup mulai dari langkah
+              pertama dulu.
             </p>
             <div className="relative mt-auto pt-8">
               <div
@@ -102,7 +102,17 @@ export default function LangkahLayanan() {
                         : "bg-white group-hover:shadow-[4px_4px_0_var(--color-ink)]"
                     }`}
                   >
-                    {s}
+                    {i === 0 ? (
+                      <span>
+                        {s}
+                        <span className="mt-1 block text-xs font-normal text-muted">
+                          Kamu bisa mulai dengan kalimat sederhana seperti,
+                          “Akhir-akhir ini aku merasa kewalahan dengan kuliah.”
+                        </span>
+                      </span>
+                    ) : (
+                      s
+                    )}
                     {i === 0 && (
                       <span className="rounded-full border-[1.5px] border-ink bg-butter px-2.5 py-0.5 text-[0.68rem]">
                         Mulai di sini
@@ -133,17 +143,17 @@ export default function LangkahLayanan() {
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="eyebrow text-butter!">Informasi layanan</p>
-              <h2 className="mt-3 max-w-xl text-3xl leading-[1.05] font-extrabold text-white sm:text-4xl">
+              <h2 className="mt-3 lg:max-w-xl text-3xl leading-[1.05] font-extrabold text-white sm:text-4xl">
                 Layanan psikologi di{" "}
                 <span className="text-periwinkle">
-                  Makassar &amp; Sulawesi Selatan
+                  Makassar, Sulawesi Selatan &amp; online
                 </span>
               </h2>
             </div>
             <p className="flex max-w-xs gap-2 rounded-2xl border-[1.5px] border-dashed border-white/50 p-3 text-xs text-white/80">
               <LuInfo size={16} className="shrink-0 text-orange" />
-              Hubungi layanan terlebih dahulu untuk menanyakan jadwal dan
-              ketentuan.
+              Sebelum datang, hubungi dulu layanannya untuk tanya jadwal dan
+              ketentuannya, ya.
             </p>
           </div>
         </Container>
@@ -158,7 +168,7 @@ export default function LangkahLayanan() {
               <h2 className="text-4xl leading-[1.02] font-extrabold sm:text-5xl">
                 Tidak harus menghadapi semuanya sendiri.
               </h2>
-              <p className="mt-4 max-w-lg">
+              <p className="mt-4 lg:max-w-lg">
                 Mencari bantuan bukan tanda kelemahan, melainkan langkah aktif
                 yang berani untuk merawat dirimu.
               </p>

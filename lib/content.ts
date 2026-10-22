@@ -1,8 +1,12 @@
 export const DISCLAIMER =
-  "Website ini bukan alat diagnosis dan tidak menggantikan konsultasi dengan psikolog atau tenaga profesional.";
+  "Website ini untuk membantu kamu memahami pengalaman dan pilihan dukungan, bukan untuk mendiagnosis kondisi psikologis.";
+
+export const SITE_NAME = "PsySeek";
+
+export const TAGLINE = "A space to understand, a step toward seeking help.";
 
 export const SITE_DESC =
-  "Website ini membantu mahasiswa memahami stres akademik, hambatan mencari bantuan, serta langkah mendapatkan dukungan profesional.";
+  "Tempat kamu mengenali stres akademik, memahami apa yang kadang bikin ragu mencari bantuan, dan menemukan dukungan yang bisa kamu pertimbangkan.";
 
 export type Tone = "lavender" | "mint" | "pink" | "butter" | "periwinkle";
 
@@ -19,52 +23,54 @@ export const chapters: {
     href: "/stres-akademik",
     nav: "Stres Akademik",
     title: "Mengenali Stres Akademik",
-    desc: "Pengertian, penyebab, dampak, dan refleksi singkat tentang apa yang sedang kamu alami.",
-    tone: "mint",
-  },
-  {
-    no: "02",
-    href: "/mencari-bantuan",
-    nav: "Mencari Bantuan",
-    title: "Mengapa Mencari Bantuan Itu Penting?",
-    desc: "Help-seeking, tenaga profesional, manfaatnya, dan kuis mitos atau fakta.",
+    desc: "Kenali apa saja yang bisa bikin kuliah terasa berat, apa dampaknya kalau terus menumpuk, lalu coba refleksi singkat.",
     tone: "lavender",
   },
   {
-    no: "03",
-    href: "/hambatan",
-    nav: "Hambatan",
-    title: "Apa yang Membuat Ragu Mencari Bantuan?",
-    desc: "Enam hambatan yang sering dirasakan, dan cara lain untuk melihatnya.",
-    tone: "periwinkle",
-  },
-  {
-    no: "04",
+    no: "02",
     href: "/dukungan",
     nav: "Dukungan",
     title: "Dukungan dari Orang Sekitar",
-    desc: "Siapa saja yang bisa mendukungmu, dan bagaimana mendukung teman.",
+    desc: "Kadang kita cuma butuh didengarkan. Begini cara orang terdekat bisa hadir.",
     tone: "butter",
+  },
+  {
+    no: "03",
+    href: "/mencari-bantuan",
+    nav: "Mencari Bantuan",
+    title: "Mengapa Mencari Bantuan Itu Penting?",
+    desc: "Kenalan dengan tenaga profesional, manfaatnya, dan coba kuis mitos atau fakta.",
+    tone: "mint",
+  },
+  {
+    no: "04",
+    href: "/hambatan",
+    nav: "Hambatan",
+    title: "Apa yang Membuat Ragu Mencari Bantuan?",
+    desc: "Ikuti obrolan Salsa dan Dian tentang hal-hal yang sering bikin ragu.",
+    tone: "pink",
   },
   {
     no: "05",
     href: "/langkah-layanan",
     nav: "Langkah & Layanan",
     title: "Mencari Bantuan Itu Bisa Dilakukan",
-    desc: "Tujuh langkah sederhana dan daftar layanan psikologi di Makassar.",
-    tone: "pink",
+    desc: "Tujuh langkah sederhana dan delapan layanan psikologi yang bisa kamu hubungi.",
+    tone: "periwinkle",
   },
 ];
 
 export const footerLinks = [
   { href: "/stres-akademik", label: "Mengenali Stres Akademik" },
+  { href: "/dukungan", label: "Dukungan dari Orang Sekitar" },
   { href: "/mencari-bantuan", label: "Mengapa Mencari Bantuan" },
   { href: "/hambatan", label: "Hambatan Mencari Bantuan" },
-  { href: "/dukungan", label: "Dukungan dari Orang Sekitar" },
   { href: "/langkah-layanan", label: "Langkah & Layanan" },
 ];
 
-/* ---------- Bab 01 ---------- */
+export type ChatLine = { who: "Salsa" | "Dian"; text: string };
+
+/* ---------- Part 01 · Stres Akademik ---------- */
 
 export const causes: {
   key: string;
@@ -74,7 +80,7 @@ export const causes: {
 }[] = [
   {
     key: "A",
-    label: "Akademik",
+    label: "Tuntutan Kuliah",
     tone: "lavender",
     items: [
       "Beban tugas yang banyak",
@@ -97,7 +103,7 @@ export const causes: {
   },
   {
     key: "C",
-    label: "Sosial",
+    label: "Lingkungan Sosial",
     tone: "mint",
     items: [
       "Tekanan dari keluarga",
@@ -109,7 +115,7 @@ export const causes: {
   },
   {
     key: "D",
-    label: "Lingkungan & Kondisi Hidup",
+    label: "Kondisi di Luar Kuliah",
     tone: "butter",
     items: [
       "Masalah keuangan",
@@ -135,7 +141,7 @@ export const impacts: { title: string; content: string[] }[] = [
     content: ["Kelelahan", "Gangguan tidur"],
   },
   {
-    title: "Pada hubungan sosial & emosi",
+    title: "Pada emosi & hubungan sosial",
     content: [
       "Menarik diri dari lingkungan sosial",
       "Lebih mudah mengalami konflik",
@@ -181,13 +187,13 @@ export const burdens = [
   "Kewalahan",
 ];
 
-/* ---------- Bab 02 ---------- */
+/* ---------- Part 03 · Mencari Bantuan ---------- */
 
 export const professionals = [
   {
     no: "01",
     title: "Psikolog",
-    desc: "Membantu memahami pikiran, emosi, dan perilaku melalui asesmen dan konseling/intervensi psikologis.",
+    desc: "Membantumu memahami pikiran, emosi, dan perilaku lewat asesmen dan konseling/intervensi psikologis.",
     tag: "Tidak meresepkan obat",
     tagIcon: "x" as const,
     tone: "lavender" as Tone,
@@ -196,7 +202,7 @@ export const professionals = [
   {
     no: "02",
     title: "Konselor",
-    desc: "Memberikan bimbingan dan dukungan untuk permasalahan personal, akademik, atau karier.",
+    desc: "Memberi bimbingan dan dukungan untuk masalah personal, akademik, atau karier.",
     tag: "Personal · Akademik · Karier",
     tagIcon: null,
     tone: "butter" as Tone,
@@ -216,27 +222,27 @@ export const professionals = [
 export const benefits = [
   {
     title: "Ruang yang aman untuk bercerita",
-    desc: "Kamu dapat membicarakan masalah, perasaan, dan pengalaman tanpa harus merasa dihakimi.",
+    desc: "Kamu bisa membicarakan masalah, perasaan, dan pengalaman tanpa harus merasa dihakimi.",
   },
   {
     title: "Memahami masalah dengan lebih jelas",
-    desc: "Profesional membantu melihat hubungan antara pikiran, emosi, perilaku, dan situasi yang sedang dihadapi.",
+    desc: "Profesional bisa bantu kamu melihat hubungan antara pikiran, emosi, perilaku, dan situasi yang sedang kamu hadapi.",
   },
   {
     title: "Strategi menghadapi masalah",
-    desc: "Belajar mengelola stres, mengatur waktu, menghadapi pikiran negatif, berkomunikasi, dan mengambil keputusan.",
+    desc: "Kamu bisa belajar cara mengelola stres, mengatur waktu, menghadapi pikiran negatif, berkomunikasi, dan mengambil keputusan.",
   },
   {
     title: "Dukungan yang sesuai",
-    desc: "Bantuan disesuaikan dengan kebutuhan dan kondisimu. Tidak semua orang membutuhkan bentuk bantuan yang sama.",
+    desc: "Bantuan disesuaikan dengan kebutuhan dan kondisimu. Tiap orang bisa butuh bentuk bantuan yang berbeda.",
   },
   {
     title: "Mencegah masalah makin berat",
-    desc: "Mencari bantuan sejak awal membantu mengurangi beban sebelum masalah semakin mengganggu kehidupan sehari-hari.",
+    desc: "Mencari bantuan sejak awal bisa mengurangi beban sebelum masalahnya makin mengganggu keseharianmu.",
   },
   {
     title: "Membantu mengambil keputusan",
-    desc: "Profesional membantu mempertimbangkan pilihan dan menentukan langkah yang lebih aman serta realistis.",
+    desc: "Profesional bisa menemanimu menimbang pilihan dan menentukan langkah yang lebih aman dan realistis.",
   },
 ];
 
@@ -258,7 +264,7 @@ export const quiz: {
       },
     ],
     explain:
-      "Mencari bantuan merupakan bentuk keberanian dan kepedulian terhadap diri sendiri. Pernyataan “Kalau mencari bantuan berarti saya lemah” adalah mitos.",
+      "Mencari bantuan itu bentuk keberanian dan kepedulian pada diri sendiri. Jadi, anggapan “Kalau mencari bantuan berarti saya lemah” itu mitos.",
   },
   {
     statement: "Harus menunggu masalah menjadi berat",
@@ -273,7 +279,7 @@ export const quiz: {
       },
     ],
     explain:
-      "Kamu tidak harus menunggu masalah menjadi berat untuk mencari bantuan. Bantuan dapat dicari sejak mulai merasa kesulitan atau ketika ingin lebih memahami diri sendiri.",
+      "Kamu tidak harus menunggu masalah menjadi berat untuk mencari bantuan. Kamu bisa mencari bantuan sejak mulai merasa kesulitan, atau saat ingin lebih memahami diri sendiri.",
   },
   {
     statement: "Psikolog hanya untuk gangguan mental",
@@ -288,7 +294,7 @@ export const quiz: {
       },
     ],
     explain:
-      "Psikolog tidak hanya membantu orang yang mengalami gangguan mental. Psikolog juga dapat membantu menghadapi berbagai masalah dan tantangan dalam kehidupan sehari-hari.",
+      "Psikolog tidak hanya membantu orang yang mengalami gangguan mental. Psikolog juga bisa membantumu menghadapi berbagai masalah dan tantangan sehari-hari.",
   },
   {
     statement: "Bercerita kepada teman sama dengan konsultasi profesional",
@@ -303,7 +309,7 @@ export const quiz: {
       },
     ],
     explain:
-      "Bercerita kepada teman dapat membantu memberikan dukungan emosional. Namun, profesional memiliki pengetahuan dan keterampilan khusus untuk memberikan bantuan psikologis secara profesional.",
+      "Bercerita ke teman bisa memberi dukungan emosional. Tapi, profesional punya pengetahuan dan keterampilan khusus untuk memberikan bantuan psikologis.",
   },
   {
     statement: "Mencari bantuan membuat orang lain menganggap kita bermasalah",
@@ -318,7 +324,7 @@ export const quiz: {
       },
     ],
     explain:
-      "Setiap orang dapat membutuhkan bantuan pada waktu tertentu. Penilaian orang lain tidak menentukan nilai diri seseorang.",
+      "Siapa pun bisa butuh bantuan di waktu tertentu. Penilaian orang lain nggak menentukan nilai dirimu.",
   },
   {
     statement: "Harus tahu masalah sebelum menemui psikolog",
@@ -333,67 +339,118 @@ export const quiz: {
       },
     ],
     explain:
-      "Kamu tidak harus sudah mengetahui atau memahami masalahmu secara jelas sebelum menemui psikolog. Membantu memahami apa yang sedang dialami merupakan bagian dari proses konsultasi.",
+      "Kamu nggak harus sudah paham betul masalahmu sebelum menemui psikolog. Mencari tahu apa yang sedang kamu alami justru bagian dari proses konsultasi.",
   },
 ];
 
-/* ---------- Bab 03 ---------- */
+/* ---------- Part 04 · Hambatan ---------- */
 
 export const barriers: {
   title: string;
   felt: string;
-  reframe: string;
+  chat: [ChatLine, ChatLine];
   tone: Tone;
 }[] = [
   {
     title: "Takut dianggap lemah",
-    felt: "Mahasiswa merasa harus menyelesaikan semua masalah sendiri.",
-    reframe:
-      "Meminta bantuan merupakan langkah aktif untuk menghadapi masalah.",
+    felt: "Merasa harus menyelesaikan semua masalah sendiri.",
+    chat: [
+      {
+        who: "Salsa",
+        text: "Aku lagi banyak banget pikiran soal kuliah. Tapi aku merasa harus bisa menyelesaikan semuanya sendiri. Masa begini aja aku tidak sanggup?",
+      },
+      {
+        who: "Dian",
+        text: "Kamu nggak harus menghadapi semuanya sendirian, Sal. Mencari bantuan bukan berarti kamu lemah, kok. Justru, itu bisa jadi langkah untuk menghadapi masalah yang sedang kamu alami.",
+      },
+    ],
     tone: "pink",
   },
   {
     title: "Takut dinilai orang lain",
     felt: "Khawatir dianggap berlebihan atau tidak mampu.",
-    reframe: "Tenaga profesional bertugas membantu, bukan menghakimi.",
+    chat: [
+      {
+        who: "Salsa",
+        text: "Aku mau konsultasi ke psikolog, tapi takut dianggap berlebihan. Gimana kalau orang lain berpikir aku tidak mampu mengatasi masalah sendiri?",
+      },
+      {
+        who: "Dian",
+        text: "Aku paham kamu khawatir. Tapi, tenaga profesional memang bertugas membantu, bukan menghakimi kamu. Kamu berhak mencari bantuan tanpa harus takut dianggap nggak mampu.",
+      },
+    ],
     tone: "mint",
   },
   {
     title: "Malu bercerita",
     felt: "Merasa tidak nyaman membicarakan masalah pribadi.",
-    reframe: "Kamu bisa mulai dari cerita yang paling mudah disampaikan.",
+    chat: [
+      {
+        who: "Salsa",
+        text: "Aku sebenarnya mau cerita, tapi bingung harus mulai dari mana. Rasanya malu kalau harus menceritakan masalah pribadi ke orang yang belum aku kenal.",
+      },
+      {
+        who: "Dian",
+        text: "Tidak apa-apa kalau kamu belum tahu harus mulai dari mana. Kamu bisa cerita sedikit demi sedikit, dari hal yang paling nyaman buat kamu sampaikan. Tidak harus semuanya langsung diceritakan.",
+      },
+    ],
     tone: "lavender",
   },
   {
     title: "Stigma",
     felt: "Anggapan negatif terhadap orang yang mencari bantuan.",
-    reframe: "Mencari bantuan merupakan perilaku yang wajar.",
+    chat: [
+      {
+        who: "Salsa",
+        text: "Menurutku, orang yang mencari bantuan psikologis itu pasti punya masalah besar. Aku takut kalau orang tahu aku konsultasi, mereka jadi punya pandangan negatif tentang aku.",
+      },
+      {
+        who: "Dian",
+        text: "Sebenarnya, siapa pun bisa mengalami masa sulit dan membutuhkan dukungan. Mencari bantuan itu hal yang wajar, Salsa. Kamu tidak perlu merasa malu hanya karena ingin menjaga kesehatan mentalmu.",
+      },
+    ],
     tone: "butter",
-  },
-  {
-    title: "Tidak tahu harus menghubungi siapa",
-    felt: "Kurangnya informasi tentang layanan.",
-    reframe:
-      "Website ini memberikan panduan sumber bantuan yang bisa kamu akses.",
-    tone: "periwinkle",
   },
   {
     title: "Khawatir masalah tidak cukup serius",
     felt: "Merasa masalahnya belum pantas dibicarakan.",
-    reframe:
-      "Jika masalah mulai mengganggu aktivitas harianmu, hal itu sudah cukup menjadi alasan untuk mencari bantuan.",
+    chat: [
+      {
+        who: "Salsa",
+        text: "Akhir-akhir ini aku sering kepikiran tugas sampai susah tidur. Tapi, kayaknya masalahku belum cukup serius untuk dibawa ke psikolog, deh.",
+      },
+      {
+        who: "Dian",
+        text: "Kalau hal itu sudah mengganggu tidur dan keseharianmu, kamu boleh mencari bantuan, kok. Kamu tidak harus menunggu sampai masalahnya makin berat untuk mulai bercerita.",
+      },
+    ],
     tone: "pink",
+  },
+  {
+    title: "Tidak tahu harus menghubungi siapa",
+    felt: "Kurangnya informasi tentang layanan.",
+    chat: [
+      {
+        who: "Salsa",
+        text: "Aku mulai merasa kewalahan dengan kuliah dan mau cari bantuan. Tapi, harus menghubungi siapa, ya? Aku juga tidak tahu layanan psikologi apa saja yang tersedia.",
+      },
+      {
+        who: "Dian",
+        text: "Kamu bisa mulai dengan mencari tahu layanan yang tersedia dan mana yang sesuai dengan kebutuhanmu. Di website ini juga ada informasi beberapa layanan yang bisa kamu cek.",
+      },
+    ],
+    tone: "periwinkle",
   },
 ];
 
-/* ---------- Bab 04 ---------- */
+/* ---------- Part 02 · Dukungan ---------- */
 
 export const supportSources: { label: string; dot: string; dark?: boolean }[] =
   [
-    { label: "Teman dekat", dot: "var(--color-pink-deep)" },
+    { label: "Teman", dot: "var(--color-pink-deep)" },
     { label: "Keluarga", dot: "var(--color-orange)" },
-    { label: "Dosen Pembimbing", dot: "var(--color-indigo-soft)" },
-    { label: "Organisasi atau komunitas", dot: "var(--color-mint-deep)" },
+    { label: "Dosen pembimbing", dot: "var(--color-indigo-soft)" },
+    { label: "Komunitas", dot: "var(--color-mint-deep)" },
     { label: "Konselor", dot: "var(--color-lavender)", dark: true },
     { label: "Psikolog", dot: "var(--color-mint)", dark: true },
     {
@@ -411,41 +468,58 @@ export const supportRoles: {
 }[] = [
   {
     title: "Mendengarkan",
-    desc: "Menyediakan ruang untuk bercerita tanpa menghakimi atau langsung memberi solusi.",
+    desc: "Memberi ruang untuk bercerita, tanpa menghakimi atau buru-buru kasih solusi.",
     tone: "pink",
     icon: "chat",
   },
   {
     title: "Memberikan Semangat",
-    desc: "Mendukung keputusan mencari bantuan dan mengingatkan bahwa itu hal yang baik.",
+    desc: "Mendukung keputusanmu mencari bantuan dan mengingatkan bahwa itu langkah yang baik.",
     tone: "butter",
     icon: "sun",
   },
   {
     title: "Memberikan Informasi",
-    desc: "Membantu mencari tahu tentang layanan atau sumber bantuan yang tersedia.",
+    desc: "Bantu cari tahu layanan atau sumber bantuan yang bisa dihubungi.",
     tone: "periwinkle",
     icon: "search",
   },
   {
     title: "Menemani",
-    desc: "Bersedia menemani saat mengunjungi layanan kesehatan mental jika diinginkan.",
+    desc: "Siap menemani saat kamu ingin pergi ke layanan kesehatan mental.",
     tone: "mint",
     icon: "users",
   },
 ];
 
 export const friendDos = [
-  "Dengarkan tanpa langsung memberikan solusi",
-  "Validasi perasaannya, namun tidak harus selalu setuju",
-  "Berikan ruang untuk bercerita sesuai keinginannya",
-  "Bantu cari informasi layanan jika ia tertarik",
-  "Sampaikan bahwa kamu peduli tanpa membuatnya merasa terbebani",
+  "Dengarkan dulu tanpa buru-buru memberi solusi.",
+  "Validasi perasaannya, namun tidak harus selalu setuju.",
+  "Berikan ruang untuk bercerita sesuai keinginannya.",
+  "Tawarkan bantuan mencari informasi layanan jika ia tertarik.",
+  "Tunjukkan bahwa kamu peduli tanpa membuatnya merasa terbebani.",
 ];
 
-export const friendDont = "Jangan memaksanya bercerita atau mencari bantuan";
+export const friendDont =
+  "Jangan memaksa teman bercerita atau mencari bantuan.";
 
-/* ---------- Bab 05 ---------- */
+export const supportChat: ChatLine[] = [
+  {
+    who: "Salsa",
+    text: "Aku ngerasa capek banget akhir-akhir ini. Tapi aku juga bingung mau cerita ke siapa.",
+  },
+  {
+    who: "Dian",
+    text: "Makasih ya udah cerita. Kamu mau aku dengerin dulu, atau kamu mau kita pikirkan sama-sama langkah yang bisa kamu ambil?",
+  },
+  { who: "Salsa", text: "Dengerin dulu aja boleh?" },
+  { who: "Dian", text: "Boleh. Cerita pelan-pelan aja." },
+];
+
+export const supportNote =
+  "Jadi teman yang mendukung bukan berarti kamu harus menyelesaikan semua masalahnya sendirian. Kalau temanmu butuh bantuan lebih lanjut, kamu bisa ajak dia cari dukungan profesional bareng.";
+
+/* ---------- Part 05 · Langkah & Layanan ---------- */
 
 export const steps = [
   "Mengenali bahwa saya membutuhkan bantuan",
@@ -534,5 +608,25 @@ export const services: Service[] = [
     badge: "Tamalanrea",
     tone: "mint",
     image: "illustrations/mastery.webp",
+  },
+  {
+    initials: "IN",
+    name: "Intelektualita",
+    address: "Jl. Rsi Faisal IV No.11, Makassar 90222",
+    phone: "0858-2400-2343",
+    instagram: "intelektualitamakassar",
+    badge: "Makassar",
+    tone: "lavender",
+    image: "illustrations/intelektualita.webp",
+  },
+  {
+    initials: "HJ",
+    name: "Halo Jiwa Indonesia",
+    address: "Layanan online, bisa diakses dari mana saja",
+    phone: "0823-4569-4746",
+    instagram: "halojiwaindonesia",
+    badge: "Layanan online",
+    tone: "butter",
+    image: "illustrations/halo-jiwa.webp",
   },
 ];

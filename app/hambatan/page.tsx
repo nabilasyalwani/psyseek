@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ChapterBadge, Container, NextChapter } from "@/components/Shared";
 import { LuArrowDown } from "react-icons/lu";
-import { Doubts, PeopleCircle } from "@/components/Illustrations";
+import { Doubts, NightWindow } from "@/components/Illustrations";
 import BarrierExplorer from "@/components/hambatan/BarrierExplorer";
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default function Hambatan() {
       <section className="dots-bg border-b-[1.5px] border-ink">
         <Container className="grid items-center gap-10 py-14 lg:grid-cols-[1.1fr_1fr] lg:py-16">
           <div>
-            <ChapterBadge no="03" tone="pink" />
+            <ChapterBadge no="04" tone="pink" />
             <h1 className="mt-5 text-5xl leading-[1.02] font-extrabold sm:text-6xl">
               Apa yang Membuat{" "}
               <span className="highlight bg-pink inline-block -rotate-2">
@@ -34,9 +34,9 @@ export default function Hambatan() {
               </span>{" "}
               Mencari Bantuan?
             </h1>
-            <p className="mt-6 max-w-lg text-muted">
-              Hambatan yang sering dirasakan mahasiswa. Pilih salah satu
-              hambatan di bawah untuk melihatnya dari sudut pandang lain.
+            <p className="mt-6 lg:max-w-lg text-muted">
+              Ada beberapa hal yang sering bikin mahasiswa ragu cari bantuan.
+              Pilih salah satu, lalu intip obrolan Salsa dan Dian soal itu.
             </p>
             <a href="#hambatan" className="btn btn-dark mt-7">
               Jelajahi hambatan <LuArrowDown />
@@ -44,7 +44,10 @@ export default function Hambatan() {
           </div>
           <div className="relative mx-auto aspect-square w-full max-w-md">
             <div className="brutal absolute inset-4 rounded-full bg-pink" />
-            <Doubts className="floaty absolute inset-0 m-auto w-[92%]" priority />
+            <Doubts
+              className="floaty absolute inset-0 m-auto w-[92%]"
+              priority
+            />
             {bubbles.map((b, i) => (
               <span
                 key={b.text}
@@ -65,11 +68,11 @@ export default function Hambatan() {
       </section>
 
       <NextChapter
-        no="04"
-        title="Dukungan dari Orang Sekitar"
-        href="/dukungan"
-        tone="butter"
-        art={<PeopleCircle className="spin-slower h-full w-full" />}
+        no="05"
+        title="Mencari Bantuan Itu Bisa Dilakukan"
+        href="/langkah-layanan"
+        tone="periwinkle"
+        art={<NightWindow className="h-full w-full" />}
       />
     </>
   );

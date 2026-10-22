@@ -6,10 +6,8 @@ import {
   SectionHead,
 } from "@/components/Shared";
 import {
-  BrainTangle,
-  Doubts,
   Overwhelmed,
-  MirrorPerson,
+  PeopleCircleNew,
   RainCloud,
   Sleepless,
   TangledStudy,
@@ -35,19 +33,30 @@ export default function StresAkademik() {
           <div>
             <ChapterBadge no="01" tone="lavender" />
             <h1 className="mt-5 text-5xl leading-[0.98] font-extrabold sm:text-6xl">
-              Mengenali Stres Akademik
+              Pernah Merasa Penuh, tapi{" "}
+              <span className="highlight inline-block -rotate-1 bg-lavender">
+                Bingung
+              </span>{" "}
+              Kenapa?
             </h1>
-            <div className="brutal relative mt-7 max-w-xl rounded-[22px] bg-white p-6">
+            <p className="mt-6 lg:max-w-xl leading-relaxed text-muted">
+              Pernah nggak, kamu buka laptop buat ngerjain tugas, tapi malah
+              menghayal lama? Tugasnya ada, tenggat waktunya makin dekat, tetapi
+              kamu bingung harus mulai dari mana. Atau kamu merasa lelah dan
+              kepikiran kuliah terus, bahkan saat sedang istirahat?
+            </p>
+            <div className="brutal relative mt-10 lg:max-w-xl rounded-[22px] bg-white p-6">
               <span className="absolute -top-3 left-5 rounded-full border-[1.5px] border-ink bg-butter px-2.5 py-0.5 text-[0.68rem] font-bold">
-                Pengertian
+                Coba kenali dulu
               </span>
               <p className="text-lg leading-snug font-semibold">
-                Stres akademik adalah{" "}
+                Pengalaman seperti itu bisa menjadi salah satu tanda bahwa{" "}
                 <mark className="rounded-md bg-lavender px-1 text-ink">
-                  respons alami tubuh
+                  tuntutan akademik sedang terasa berat
                 </mark>{" "}
-                terhadap tuntutan atau tekanan akademik. Mengenalinya lebih awal
-                adalah langkah penting untuk merawat diri.
+                buatmu. Tapi, satu-dua pengalaman saja belum tentu berarti kamu
+                mengalami stres akademik, kok. Coba lihat lagi situasi dan
+                perasaanmu secara keseluruhan.
               </p>
             </div>
             <nav
@@ -83,7 +92,7 @@ export default function StresAkademik() {
         <Container>
           <SectionHead
             eyebrow="Penyebab stres akademik"
-            title="Tekanan bisa datang dari empat arah."
+            title="Apa saja yang bisa bikin kuliah terasa berat?"
             aside="Pilih salah satu faktor untuk melihat contoh penyebabnya."
           />
           <CauseTabs />
@@ -96,8 +105,8 @@ export default function StresAkademik() {
           <SectionHead
             dark
             eyebrow="Dampak stres akademik"
-            title="Apa dampaknya jika stres tidak dikelola?"
-            aside="Stres yang dibiarkan bisa merembet ke belajar, tubuh, dan hubungan dengan orang lain."
+            title="Kalau terus menumpuk, apa yang bisa terjadi?"
+            aside="Stres yang dibiarkan bisa merembet ke belajar, tubuh, dan hubunganmu dengan orang lain."
           />
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             <article className="relative min-h-48 overflow-hidden rounded-[26px] border-[1.5px] border-white bg-lavender p-7 shadow-[6px_6px_0_var(--color-orange)] md:row-span-2">
@@ -183,10 +192,10 @@ export default function StresAkademik() {
 
         <NextChapter
           no="02"
-          title="Mengapa Mencari Bantuan Itu Penting?"
-          href="/mencari-bantuan"
-          tone="mint"
-          art={<Sleepless className="h-full w-full " />}
+          title="Dukungan dari Orang Sekitar"
+          href="/dukungan"
+          tone="butter"
+          art={<PeopleCircleNew className="spin-slower h-full w-full" />}
         />
       </section>
     </>

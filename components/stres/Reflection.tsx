@@ -88,7 +88,7 @@ export default function Reflection() {
             </p>
             <p className="mt-2 text-sm text-muted">
               Pilih pernyataan yang sesuai dengan yang kamu alami. Tidak ada
-              jawaban benar atau salah.
+              jawaban benar atau salah kok.
             </p>
           </div>
         ) : count < 4 ? (
@@ -97,8 +97,8 @@ export default function Reflection() {
               Terima kasih sudah memperhatikan dirimu.
             </p>
             <p className="mt-2 text-sm text-muted">
-              Mengenali stres lebih awal adalah langkah penting untuk merawat
-              diri. Perhatikan apakah hal-hal ini mulai mengganggu harimu.
+              Mengenali stres lebih awal itu langkah penting untuk merawat diri.
+              Coba perhatikan, apakah hal-hal ini mulai mengganggu harimu?
             </p>
           </div>
         ) : (
@@ -121,8 +121,8 @@ export default function Reflection() {
 
         <div className="mt-4 flex items-end gap-3 border-t border-dashed border-ink/30 pt-5">
           <p className="text-xs text-muted">
-            Refleksi ini bukan alat diagnosis, melainkan ajakan untuk mengenali
-            diri.
+            Refleksi ini bukan alat diagnosis, tapi ajakan untuk lebih kenal
+            dengan dirimu sendiri.
           </p>
           <HeartCare className="w-24 shrink-0" />
         </div>

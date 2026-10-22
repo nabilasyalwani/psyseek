@@ -71,9 +71,10 @@ export default function CauseTabs() {
         </div>
         <div>
           <div className="flex items-baseline justify-between gap-4">
-            <h3 className="text-2xl font-extrabold sm:text-3xl">
-              Faktor {c.label}
-            </h3>
+            <h3 className="text-2xl font-extrabold sm:text-3xl">{c.label}</h3>
+            <span className="shrink-0 text-xs text-muted">
+              {c.items.length} contoh
+            </span>
           </div>
           <ol className="mt-5 grid gap-3">
             {c.items.map((item, i) => (
