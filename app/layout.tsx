@@ -31,7 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-scroll-behavior="smooth"
       className={`${display.variable} ${body.variable}`}
     >
-      <body className="flex min-h-screen flex-col overflow-x-clip">
+      <body className="flex min-h-screen flex-col">
         <a
           href="#konten"
           className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-60 focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-white"
@@ -39,7 +39,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Lewati ke konten
         </a>
         <Header />
-        <main id="konten" className="flex-1">
+        {/* Clipping here, not on <body>: body overflow is handed to the viewport, which iOS Safari ignores when deciding how far the page can be zoomed out. */}
+        <main id="konten" className="flex-1 overflow-x-clip">
           {children}
         </main>
         <Footer />

@@ -201,9 +201,7 @@ export default function Home() {
                 >
                   {c.title}
                 </h3>
-                <p
-                  className={`mt-3 ${c.no === "01" ? "max-w-[16rem]" : "max-w-60"}  text-sm text-muted`}
-                >
+                <p className={`mt-3 max-w-[62%] text-sm text-muted`}>
                   {c.desc}
                 </p>
                 <span

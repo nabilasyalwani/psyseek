@@ -12,7 +12,7 @@ const bubbles = [
   { text: "Nanti dianggap lemah?", cls: "top-[8%] -left-2 -rotate-6 bg-white" },
   {
     text: "Masalahku belum serius…",
-    cls: "top-[36%] -right-4 rotate-6 bg-butter",
+    cls: "top-[36%] right-0 sm:-right-4 rotate-6 bg-butter",
   },
   {
     text: "Harus hubungi siapa?",

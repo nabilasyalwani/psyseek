@@ -83,10 +83,13 @@ export default function Dukungan() {
           </div>
           <div className="relative mx-auto aspect-square w-full max-w-md">
             <div className="brutal absolute inset-0 rounded-full bg-white" />
-            <PeopleCircleNew
-              className="spin-slower pause-on-hover absolute inset-0 m-auto w-[90%]"
-              priority
-            />
+            {/* Clip the spinning square image to the circle so its corners never poke past the screen edge. */}
+            <div className="absolute inset-0 overflow-hidden rounded-full">
+              <PeopleCircleNew
+                className="spin-slower pause-on-hover absolute inset-0 m-auto w-[90%]"
+                priority
+              />
+            </div>
           </div>
         </Container>
       </section>
